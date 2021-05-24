@@ -1,15 +1,13 @@
 var twilio = require('twilio'),
 client = new twilio('ACde57b8c86436ad5c4a1a9e2904ffa05d', '3bd041600cca4c21f2e384ca723ba60e'),
 cronJob = require('cron').CronJob; 
-import * as cron from 'node-cron';
-// import './.env'
 
 // const accountSid = process.env.TWILIO_ACCOUNT_SID;
 // const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 // const client = require('twilio')(accountSid, authToken);
 
-// client.messages
+// client.messages    
 //     .create({
 //         to: '+16514429080',
 //         from: '+16178706781',

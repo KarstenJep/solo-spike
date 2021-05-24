@@ -1,0 +1,29 @@
+// require node-cron and express
+const cron = require('node-cron');
+const express = require('express');
+
+// create an instance of express
+app = express();
+
+cron.schedule('* * * * * *', function () {
+    console.log('running a task every minute');
+})
+
+app.listen(3000);
+
+/*
+
+   * * * * *
+   | | | | |
+   | | | | day of week
+   | | | month
+   | | day of month
+   | hour
+   minute
+ 
+
+*/
+^X
+
+^G
+

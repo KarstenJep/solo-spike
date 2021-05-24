@@ -7,22 +7,23 @@ const nodemailer = require('nodemailer');
 // create an instance of express
 app = express();
 
-// cron.schedule('* * * * * *', function () {
-//     console.log('running a task every minute');
-// })
+cron.schedule('* * * * * *', function () {
+    console.log('running a task every second');
+})
 
-// app.listen(3000);
+app.listen(3000);
 
 /*
 
-   * * * * *
-   | | | | |
-   | | | | day of week
-   | | | month
-   | | day of month
-   | hour
-   minute
- 
+  * * * * * *
+  | | | | | |
+  | | | | | day of week
+  | | | | month
+  | | | day of month
+  | | hour
+  | minute
+  second
+
  second	0-59
  minute	0-59
  hour	0-23
@@ -31,18 +32,20 @@ app = express();
  day of week	0-7 (0 or 7 are sunday, or names, e.g. Sunday, Monday, Tue, Wed)
 */
 
+
+
 let transport = nodemailer.createTransport({
     host: 'smtp-relay.gmail.com',
     port: 25,
     secure: true,
     auth: {
         user: 'kjepsen86@gmail.com',
-        pass: 'Snowboard1'
+        pass: 'password'
     }
 });
 
-cron.schedule('* * * * *', function () {
-    console.log('running cron task at 9am every day');
+cron.schedule('0 9 * * 1-5', function () {
+    console.log('running cron task at 9am every weekday');
 })
 
 let email = {
@@ -63,4 +66,4 @@ transport.sendMail(email, function (error, info) {
     }
 })
 
-app.listen(3000);
+// app.listen(3000);
